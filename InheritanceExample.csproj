@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Inheritance.cs" />
+    <Compile Include="InheritanceFullIncludeProperties.cs" />
     <Compile Include="InheritanceWithVirtual.cs" />
     <Compile Include="InheritanceWithAbstract.cs" />
     <Compile Include="NoInheritance.cs" />
