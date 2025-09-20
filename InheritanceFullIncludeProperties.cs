@@ -9,71 +9,103 @@ namespace InheritanceFullIncludeProperties
     // ===== מחלקת אב =====
     abstract class Shape
     {
+        protected string id;
+        protected string color;
+
         public Shape(string id, string color)
         {
-            Id = id;
-            Color = color;
+            this.id = id;
+            this.color = color;
         }
         // --- תכונות משותפות ---
-        public string Color{ get; set; }
-        public string Id { get; private set; }
+        public string Color {
+            get {return color;}
+            set {color = value;}
+        }
+
+        public string Id
+        {
+            get { return id; }
+        }
         // --- מתודות משותפות (כאן מימוש בסיסי בלבד) ---
         public abstract double CalculateArea();
         public abstract double CalculatePerimeter();
         public override string ToString()
         {
-            return "Shape(id: " + Id + ", Color: " + Color + ")";
+            return "Shape(id: " + id + ", Color: " + color + ")";
         }
     }
     // ===== Circle =====
     class Circle : Shape
     {
+        double radius;
         public Circle(string id, string color, double radius) : base(id, color)
         {
-            Radius = radius;
+            radius = radius;
         }
-        public double Radius { get; set; }
+        public double Radius
+        {
+            get { return radius; }
+            set { radius = value; }
+        }
+
         public override double CalculateArea()
         {
-            return Math.PI * Radius * Radius;
+            return Math.PI * radius * radius;
         }
         public override double CalculatePerimeter()
         {
-            return 2 * Radius * Radius;
+            return 2 * radius * radius;
         }
         public override string ToString()
         {
-            return "Circle(Id: " + Id + ", Color: " + Color + ", Radius: " + Radius + ")";
+            return "Circle(Id: " + id + ", Color: " + color + ", Radius: " + radius + ")";
         }
     }
     // ===== Triangle =====
     class Triangle : Shape
     {
+        public double baseLength;
+        public double height;
+        public double heightMeetsBaseOn;
+
         public Triangle(string id, string color, double baseLength, double height, double heightMeetsBaseOn)
             : base(id, color)
         {
-            BaseLength = baseLength;
-            Height = height;
-            HeightMeetsBaseOn = heightMeetsBaseOn;
+            this.baseLength = baseLength;
+            this.height = height;
+            this.heightMeetsBaseOn = heightMeetsBaseOn;
         }
         public double BaseLength { get; set; }
-        public double Height { get; set; }
-        public double HeightMeetsBaseOn { get; set; }
-        public double GetSide1Length()
-        {
-            return Math.Sqrt(Math.Pow(Height, 2) + Math.Pow(HeightMeetsBaseOn, 2));
+        public double Height {
+            get { return height; }
+            set { height = value; }
         }
-        public double GetSide2Length()
+        public double HeightMeetsBaseOn {
+            get { return heightMeetsBaseOn; }
+            set { heightMeetsBaseOn = value; }
+        }
+        public double Side1Length
         {
-            return Math.Sqrt(Math.Pow(Height, 2) + Math.Pow(BaseLength - HeightMeetsBaseOn, 2));
+            get
+            {
+                return Math.Sqrt(Math.Pow(height, 2) + Math.Pow(heightMeetsBaseOn, 2));
+            }
+        }
+        public double Side2Length
+        {
+            get
+            {
+                return Math.Sqrt(Math.Pow(height, 2) + Math.Pow(baseLength - heightMeetsBaseOn, 2));
+            }
         }
         public override double CalculateArea()
         {
-            return 0.5 * BaseLength * Height;
+            return 0.5 * baseLength * height;
         }
         public override double CalculatePerimeter()
         {
-            return BaseLength + GetSide1Length() + GetSide2Length();
+            return baseLength + Side1Length + Side2Length;
         }
         public override string ToString()
         {

@@ -9,8 +9,8 @@ namespace InheritanceWithAbstract
     // ===== מחלקת אב =====
     abstract class Shape
     {
-        private string id;
-        private string color;
+        protected string id;
+        protected string color;
         public Shape(string id, string color)
         {
             this.id = id;
@@ -48,7 +48,7 @@ namespace InheritanceWithAbstract
         }
         public override string ToString()
         {
-            return "Circle(Id: " + GetId() + ", Color: " + GetColor() + ", Radius: " + radius + ")";
+            return "Circle(Id: " + id + ", Color: " + color + ", Radius: " + radius + ")";
         }
     }
     // ===== Triangle =====
@@ -88,7 +88,7 @@ namespace InheritanceWithAbstract
         }
         public override string ToString()
         {
-            return "Triangle(id: " + GetId() + ", Color: " + GetColor() +
+            return "Triangle(id: " + id + ", Color: " + color +
                    ", Base: " + baseLength +
                    ", Height: " + height + ")";
         }
@@ -117,7 +117,7 @@ namespace InheritanceWithAbstract
         }
         public override string ToString()
         {
-            return "Rectangle(id: " + GetId() + ", Color: " + GetColor() +
+            return "Rectangle(id: " + id + ", Color: " + color +
                    ", Length: " + length +
                    ", Width: " + width + ")";
         }
@@ -142,7 +142,7 @@ namespace InheritanceWithAbstract
         }
         public override string ToString()
         {
-            return "Square(id: " + GetId() + ", Color: " + GetColor() + ", Side: " + side + ")";
+            return "Square(id: " + id + ", Color: " + color + ", Side: " + side + ")";
         }
     }
     // ===== Hexagon =====
@@ -169,9 +169,8 @@ namespace InheritanceWithAbstract
         }
         public override string ToString()
         {
-            return "Hexagon(id: " + GetId() + ", Color: " + GetColor() +
-                   ", Side: " + side +
-                   ", Apothem: " + apothem + ")";
+            return "Hexagon(id: " + id + ", Color: " + color +
+                   ", Side: " + side + ", Apothem: " + apothem + ")";
         }
     }
 }

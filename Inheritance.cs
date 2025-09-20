@@ -9,8 +9,8 @@ namespace Inheritance
     // ===== מחלקת אב =====
     class Shape
     {
-        private int id;
-        private string color;
+        protected int id;
+        protected string color;
 
         public Shape(int id, string color)
         {
@@ -53,7 +53,7 @@ namespace Inheritance
 
         public override string ToString()
         {
-            return "Circle(id: " + GetId() + ", Color: " + GetColor() + ", Radius: " + radius + ")";
+            return "Circle(id: " + id + ", Color: " + color + ", Radius: " + radius + ")";
         }
     }
 
@@ -78,7 +78,7 @@ namespace Inheritance
 
         public override string ToString()
         {
-            return "Triangle(id: " + GetId() + ", Color: " + GetColor() +
+            return "Triangle(id: " + id + ", Color: " + color +
                    ", Base: " + baseLength +
                    ", Height: " + height + ")";
         }
@@ -100,7 +100,7 @@ namespace Inheritance
 
         public override string ToString()
         {
-            return "Rectangle(id: " + GetId() + ", Color: " + GetColor() +
+            return "Rectangle(id: " + id + ", Color: " + color +
                    ", Length: " + length +
                    ", Width: " + width + ")";
         }
@@ -120,7 +120,7 @@ namespace Inheritance
 
         public override string ToString()
         {
-            return "Square(id: " + GetId() + ", Color: " + GetColor() + ", Side: " + side + ")";
+            return "Square(id: " + id + ", Color: " + color + ", Side: " + side + ")";
         }
     }
 
@@ -140,9 +140,8 @@ namespace Inheritance
 
         public override string ToString()
         {
-            return "Hexagon(id: " + GetId() + ", Color: " + GetColor() +
-                   ", Side: " + side +
-                   ", Apothem: " + apothem + ")";
+            return "Hexagon(id: " + id + ", Color: " + color +
+                   ", Side: " + side + ", Apothem: " + apothem + ")";
         }
     }
 }
